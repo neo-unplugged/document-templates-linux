@@ -1,0 +1,15 @@
+CC = gcc
+CFLAGS = -Wall -g
+LIBS = -lraylib -lm -lpthread -ldl -lrt -lX11
+
+all: raylib_window
+
+raylib_window: Raylib\ basic\ window.o
+    $(CC) $(CFLAGS) -o raylib_window Raylib\ basic\ window.o $(LIBS)
+
+Raylib\ basic\ window.o: Raylib\ basic\ window.c
+    $(CC) $(CFLAGS) -c Raylib\ basic\ window.c
+
+clean:
+    rm -f *.o raylib_window
+

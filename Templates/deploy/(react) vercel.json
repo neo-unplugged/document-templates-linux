@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "vite.config.js",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "ignoreCommand": "git diff --quiet HEAD $(git merge-base HEAD origin/main) -- 'package.json' 'yarn.lock'",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
+
